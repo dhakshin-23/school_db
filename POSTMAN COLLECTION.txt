@@ -1,0 +1,67 @@
+POSTMAN COLLECTION:
+
+MY DATA:
+
+1	gkd		PNP		2.22222		2.22222
+2	AVB		pus		10.3322		11.4729
+3	AVVB		thekku		11.1283		76.9321
+				
+
+API : POST
+URL :  http://localhost:3000/addSchool
+Headers : Content-Type	application/json
+Body : 
+{
+  "name": "Test School",
+  "address": "123 Test Street",
+  "latitude": 12.9716,
+  "longitude": 77.5946
+}
+
+
+Expected response:
+{
+  "message": "School added",
+  "id": 4
+}
+
+//ID will vary depending on your database.
+
+API : GET
+URL : http://localhost:3000/listSchools?latitude=12.9716&longitude=77.5946
+Headers : application/json
+Expected output :
+[
+    {
+        "id": 4,
+        "name": "Test School",
+        "address": "123 Test Street",
+        "latitude": 12.9716,
+        "longitude": 77.5946,
+        "distance": 0
+    },
+    {
+        "id": 3,
+        "name": "AVVB",
+        "address": "thekku",
+        "latitude": 11.1283,
+        "longitude": 76.9321,
+        "distance": 217.25710622094059
+    },
+    {
+        "id": 2,
+        "name": "AVB",
+        "address": "pus",
+        "latitude": 10.3322,
+        "longitude": 11.4729,
+        "distance": 7187.469966380018
+    },
+    {
+        "id": 1,
+        "name": "gkd",
+        "address": "PNP",
+        "latitude": 2.22222,
+        "longitude": 2.22222,
+        "distance": 8367.363698089086
+    }
+]

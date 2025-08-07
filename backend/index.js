@@ -10,7 +10,6 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-// Add School
 app.post('/addSchool', async (req, res) => {
   const { name, address, latitude, longitude } = req.body;
 
@@ -29,7 +28,6 @@ app.post('/addSchool', async (req, res) => {
   }
 });
 
-// List Schools
 app.get('/listSchools', async (req, res) => {
   const userLat = parseFloat(req.query.latitude);
   const userLng = parseFloat(req.query.longitude);
@@ -52,7 +50,6 @@ app.get('/listSchools', async (req, res) => {
   }
 });
 
-// Start server
 app.listen(process.env.PORT, () => {
   console.log(`Server running at http://localhost:${process.env.PORT}`);
 });
